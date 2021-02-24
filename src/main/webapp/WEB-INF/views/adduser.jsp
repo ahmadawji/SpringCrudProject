@@ -2,6 +2,8 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:url value="/resources/js/" var="js"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +17,11 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
 </head>
 <body>
-
+<h2>Context Path</h2>
+<font color="red">The Context Path is:${js}</font>
 <ul class="nav nav-tabs">
   <li role="presentation" ><a class="navbar-brand" href="/">Home</a></li>
   <li role="presentation" ><a href="viewuser">View Users</a></li>

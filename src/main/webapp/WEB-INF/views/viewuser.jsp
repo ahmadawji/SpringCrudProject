@@ -1,4 +1,6 @@
 <%@ page session="false" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 	<title>Home</title>
@@ -10,9 +12,10 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<c:url value="/resources/js/" var="js"/>
+
+<script src="${js}jQuerymin.js" ></script>
 </head>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <body>
 
 <ul class="nav nav-tabs">
@@ -23,8 +26,14 @@
 
 <div class="container" >
 <div class="jumbotron" style="">
+<div class="input-group">
+<span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
+<input type="text" class="form-control search" placeholder="Search for user by firstname:" />
+</div>
+<br>
 
-<table border="1" width="100%" cellpadding="3" style="margin:0 auto;" class="table table-bordered table-striped">
+<table border="1" width="100%" cellpadding="3" style="margin:0 auto;" id="Users" class="table table-bordered table-striped Users">
+<thead>
 <th>Username</th>
 <th>First name</th>
 <th>Last name</th>
@@ -33,6 +42,7 @@
 <th>Sex</th>
 <th>Edit</th>
 <th>Delete</th>
+</thead>
 <tbody>
 <c:forEach var="user" items="${list}">
 <tr>
@@ -53,5 +63,6 @@
 </div>
 </div>
 
+<script src="${js}viewUserJs.js" ></script>
 </body>
 </html>

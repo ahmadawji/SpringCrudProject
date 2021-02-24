@@ -60,6 +60,27 @@ public class DatabaseInfo {
 		    });  
 	}
 	
+	
+	public List<User> viewByName(String name){
+		return template.query("select * from users where users.fname like '"+name+"%';", new RowMapper<User>() {
+			@Override
+			public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+		        User u =new User();  
+		        u.setUsername(rs.getString(1));
+		        u.setFname(rs.getString(3));
+		        u.setLname(rs.getString(4));	
+		        u.setSex(rs.getString(5));
+		        u.setBdate(rs.getString(6));
+		        u.setCity(rs.getString(7));      
+		        return u;  
+			}
+						
+				
+		});
+	}
+	
+	
+	
 	public User userByUsername(String username) {
         String sql = "SELECT `username`, `password`, `fname`, `lname`, `sex`, `bdate`, `city` FROM `users` WHERE username = ?";
 

@@ -1,6 +1,7 @@
 package com.emergencyaid.prototype;
 
 import java.util.List;
+import java.util.ListIterator;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -49,6 +51,8 @@ public ModelAndView save(@ModelAttribute("u")User u){
 	  List<User> list= di.viewAll(); 
 	  return new ModelAndView("viewuser", "list", list); 
 	  }
+  
+
   
   @RequestMapping("/edituser/{username}")//User @PathVariable to get variable from the url
   public ModelAndView edit(@PathVariable String username) {
